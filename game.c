@@ -15,6 +15,7 @@
 
 //place function prototypes here
 
+void folksam(void);
 
 
 
@@ -74,6 +75,7 @@ int main(int argc, char *argv[])
 			}
 			case 8:
 			{
+				folksam();
 				puts("room8");
 				break;
 			}
@@ -423,3 +425,7 @@ int main(int argc, char *argv[])
 }
 
 //place functions here
+void folksam(void) 
+{
+	printf("EV\n");
+}
