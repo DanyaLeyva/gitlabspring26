@@ -428,7 +428,7 @@ int main(int argc, char *argv[])
 
 void mnFun(void)
 {
-	puts("MNroom32");
+	puts("MNroom25");
 }
 
 
