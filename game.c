@@ -14,7 +14,7 @@
 #include <unistd.h>
 
 //place function prototypes here
-
+void rtFun(void);
 
 
 
@@ -314,6 +314,7 @@ int main(int argc, char *argv[])
                         }
 			case 57:
                         {
+				rtFun();
                                 puts("room57");
                                 break;
                         }
@@ -423,3 +424,7 @@ int main(int argc, char *argv[])
 }
 
 //place functions here
+void rtFun(void)
+{
+	printf("RT");
+}
