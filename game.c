@@ -426,7 +426,7 @@ int main(int argc, char *argv[])
 //place functions here
 
 
-void theSigmaMethod()
+void theSigmaMethod(void)
 {
   printf("J.Q.");
 
