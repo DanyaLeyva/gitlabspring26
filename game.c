@@ -48,6 +48,7 @@ void room49game(void);
 void dleyva14(void);
 void ncInitial(void);
 
+void hOsuna(void);
 
 int main(int argc, char *argv[])
 {
@@ -435,6 +436,7 @@ int main(int argc, char *argv[])
 			case 68:
 			{
                                 puts("room68");
+				hOsuna();
                                 break;
 			}
 			case 69:
@@ -651,6 +653,9 @@ void ncInitial(void)
 }
 
 
-
+void hOsuna(void)
+{
+        printf("\nHAO\n");
+}
 
 
