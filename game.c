@@ -16,6 +16,7 @@
 
 
 //place function prototypes here
+void dcFunc(void);
 void ls(void);
 void mnFun(void);
 void JMfun(void);
@@ -157,6 +158,7 @@ int main(int argc, char *argv[])
 			}
 			case 19:
 			{
+				dcFunc();
 				puts("room19");
 				break;
 			}
@@ -468,6 +470,11 @@ int main(int argc, char *argv[])
 }
 
 //place function definitions below this comment
+
+void dcFunc(void)
+{
+    printf("DCroom19\n");
+}
 
 
 void mnFun(void)
