@@ -2,8 +2,15 @@
 //GP+
 //LS
 //Ryan Rodriguez
+//Anthony Farris
+//Charles Parker
+//Kristopher Willett
 //
-void ANFUN(void);
+//
+//
+
+
+
 
 
 #include <stdlib.h>
@@ -16,8 +23,10 @@ void ANFUN(void);
 
 
 //place function prototypes here
+void ANFUN(void);
+void dcFunc(void);
+void cparkerFun(void);
 void rgarcia_fun(void);
-
 void ls(void);
 void mnFun(void);
 void JMfun(void);
@@ -42,11 +51,18 @@ void jgFun(void);
 void printInitialsSMarkos(void);
 void brooklynstitt(void);
 void PogoAM(void);
-
+void aaGM(void);
 void room49game(void);
-
 void dleyva14(void);
 void AMaderaFun(void);
+void CAYfrog(void);
+void afFun(void);  
+void jmItsGoTime(void);
+void stanPush(void);
+void printdAfeworkIntials(void);
+void kwillett48(void);
+void ncInitial(void);
+
 
 int main(int argc, char *argv[])
 {
@@ -78,11 +94,13 @@ int main(int argc, char *argv[])
 			}
 			case 3:
 			{
+				cparkerFun();
 				puts("room3");
 				break;
 			}
 			case 4:
 			{
+				CAYfrog();
 				puts("room4");
 				break;
 			}
@@ -146,6 +164,7 @@ int main(int argc, char *argv[])
 			}
 			case 15:
 			{
+				ncInitial();
 				puts("room15");
 				break;
 			}
@@ -167,6 +186,7 @@ int main(int argc, char *argv[])
 			}
 			case 19:
 			{
+				dcFunc();
 				puts("room19");
 				break;
 			}
@@ -185,6 +205,7 @@ int main(int argc, char *argv[])
 			case 22:
 			{
 				puts("room22");
+				printdAfeworkIntials();
 				break;
 			}
 			case 23:
@@ -242,6 +263,7 @@ int main(int argc, char *argv[])
 			}
 			case 32:
 			{
+				aaGM();
 				puts("room32");
 				break;
 			}
@@ -301,6 +323,7 @@ int main(int argc, char *argv[])
 			case 43:
 			{
 				puts("room43");
+				stanPush();
 				break;
 			}
 			case 44:
@@ -327,6 +350,7 @@ int main(int argc, char *argv[])
 			}
 			case 48:
 			{
+				kwillett48();
 				puts("room48");
 				break;
 			}
@@ -348,6 +372,7 @@ int main(int argc, char *argv[])
 			}
 			case 52:
 			{
+				afFun();
 				puts("room52");
 				break;
 			}
@@ -363,6 +388,7 @@ int main(int argc, char *argv[])
 			}
 			case 55:
 			{
+				jmItsGoTime();
 				puts("room55");
 				break;
 			}
@@ -489,9 +515,20 @@ int main(int argc, char *argv[])
 //place function definitions below this comment
 
 
+void afFun(void)
+{ 
+	puts("AFroom52");
+}
+void dcFunc(void)
+{
+    printf("DCroom19\n");
+}
+
+
 void room49game(void)
 {
 	printf("G.C\n");
+
 }
 
 void mnFun(void)
@@ -502,6 +539,11 @@ void mnFun(void)
 
 
 //place functions here
+//
+void cparkerFun(void)
+{
+	printf("C P\n");
+}
 void rgarcia_fun(void)
 {
 	printf("RJG");
@@ -638,6 +680,10 @@ void printInitialsSMarkos(void)
 	printf("SM\n");
 }
 
+void aaGM(void)
+{
+	printf("AA\n");
+}
 
 void ANFUN(void)
 {
@@ -648,7 +694,36 @@ void dleyva14(void)
 	printf("DL\n");
 }
 
+void CAYfrog(void)
+{
+	printf("CAY");
+}
+
+void jmItsGoTime(void)
+{
+	printf("JM\n");
+}
+void printdAfeworkIntials(void)
+{
+	puts("DA");
+}
+
+
+void kwillett48(void)
+{
+	printf("KDW");
+
+}
+
+void ncInitial(void)
+{
+	printf("NC");
+}
 
 
 
+void stanPush(void)
+{
+	puts(" S J \n");
+}
 
