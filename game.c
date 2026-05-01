@@ -63,6 +63,7 @@ void printdAfeworkIntials(void);
 void kwillett48(void);
 void ncInitial(void);
 
+void hOsuna(void);
 
 int main(int argc, char *argv[])
 {
@@ -460,6 +461,7 @@ int main(int argc, char *argv[])
 			case 68:
 			{
                                 puts("room68");
+				hOsuna();
                                 break;
 			}
 			case 69:
@@ -722,8 +724,16 @@ void ncInitial(void)
 
 
 
+void hOsuna(void)
+{
+        printf("\nHAO\n");
+}
+
+
+
 void stanPush(void)
 {
 	puts(" S J \n");
 }
+
 
