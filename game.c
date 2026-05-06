@@ -79,10 +79,10 @@ void mtorres(void);
 void hOsuna(void);
 void printInitialsAngelM(void);
 
+void dGMyName(void);
 
 
 
-void dGMyName();
 
 int main(int argc, char *argv[])
 {
