@@ -564,7 +564,7 @@ void mnFun(void)
 
 
 //place functions here
-//
+
 void cparkerFun(void)
 {
 	printf("C P\n");
@@ -596,7 +596,7 @@ void JMfun(void)
 	trap[ranTrap] = 1;
 
 	puts("\nYou entered Door 24 (Jonray Mendoza)");
-	puts("Yu have entered what appears to be a maze with a series of right and left choices... be careful as you have 5 tries to escape");
+	puts("You have entered what appears to be a maze with a series of right and left choices... be careful as you have 5 tries to escape");
 
 	for(int i = 0; i < 5; i++) // 5 turns
 	{
@@ -623,7 +623,7 @@ void JMfun(void)
 		if(event == 0)
 		{
 			int action = 0;
-			puts("A skeletong appeared!");
+			puts("A skeleton appeared!");
 			puts("What will you do?");
 			puts("1. Fight it!");
 			puts("2. Run Away!");
