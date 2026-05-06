@@ -90,6 +90,8 @@ void nhfun(void);
 void printInitialsAngelM(void);
 
 void dGMyName(void);
+
+void jkFun(void);
 void jkRoom41(void); 
 
 
@@ -349,6 +351,7 @@ int main(int argc, char *argv[])
 			}
 			case 41:
 			{
+				jkFun();
 				jkRoom41();
 				break;
 			}
@@ -569,6 +572,13 @@ void afFun(void)
 { 
 	puts("AFroom52");
 }
+
+void jkFun(void)
+{
+	printf("PSG\n");
+}
+
+
 
 void dcFunc(void)
 {
