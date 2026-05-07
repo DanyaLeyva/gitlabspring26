@@ -2035,14 +2035,16 @@ void nhfun(void)
 				printf("Deep in the tomb you see the crown glowing on a\n");
 				printf("stone alter.\n");
 
-				if(inventory[0] == 1) {
+				if(inventory[0] == 1) 
+				{
 					printf("With the tourch you easily see a trap\n");
 					printf("hidden on the ground. You are able to\n");
 					printf("disarm it and take the crown.\n");
 					node = 6;
 					break;
 				}
-				else {
+				else 
+				{
 					printf("You stumble forward in the dimmly lit\n");
 					printf("room. As you go to take a step you here\n");
 					printf("a ghostly voice call out to you. 'Stop,\n");
@@ -2050,6 +2052,7 @@ void nhfun(void)
 					node = 7;
 					break;
 				}
+				break;
 
 				printf("Invalid choice.\n");
 			case 4:
