@@ -1226,7 +1226,250 @@ void cparkerFun(void)
 }
 void rgarcia_fun(void)
 {
-	printf("RJG");
+        char name[30];
+        int doorsOpened = 0;
+        int choice = 0;
+        int num1, num2, answer, correct;
+        int pick, weapon;
+        int artChoice;
+
+        printf("\nYou step through Door 47.\n");
+        printf("Inside is a room with 5 more doors.\n");
+        printf("Each one looks different.\n\n");
+
+        printf("I forgot your name, Please enter your name again: ");
+        scanf("%s", name);
+
+        printf("\nAlright %s, pick a door.\n", name);
+
+        // Main loop - 5 choices then done
+        while (doorsOpened < 5)
+        {
+                printf("\nROOM 47\n");
+                printf("Door 1: a door with math equations scratched into it.\n");
+                printf("Door 2: a door with a neon BREAK sign above it.\n");
+                printf("Door 3: a door with a glowing screen visible through the crack.\n");
+                printf("Door 4: a plain wooden door. It is quiet behind it.\n");
+                printf("Door 5: a scary looking door with the words \" I SCREAM. \" \n");
+                printf("\nWhich door do you open? ");
+                scanf("%d", &choice);
+
+                switch (choice)
+                {
+                        case 1:
+                        {
+                                //  MATH ROOM
+                                printf("\nYou enter the room and a man in a lab coat stands at a chalkboard.\n");
+                                printf("He turns to you and says:\n");
+                                printf("\"You want to leave? Pass my math test. One question. Multiplication.\"\n");
+                                printf("\"Get it wrong and I will give you a new one.\"\n\n");
+
+                                while (true)
+                                {
+                                        num1 = rand() % 100 + 1;
+                                        num2 = rand() % 100 + 1;
+                                        correct = num1 * num2;
+
+                                        printf("What is %d x %d? ", num1, num2);
+                                        scanf("%d", &answer);
+
+                                        if (answer == correct)
+                                        {
+                                                printf("The man nods. \"Correct. You may leave.\"\n");
+                                                break;
+                                        }
+                                        else
+                                        {
+                                                printf("\"Wrong. The answer was %d. Try again.\"\n\n", correct);
+                                        }
+                                }
+                                doorsOpened++;
+                                break;
+                        }
+                        case 2:
+                        {
+                                // BREAK ROOM
+                                printf("\nYou open the door and find a cozy room with dim lights and soft music.\n");
+                                printf("A sign on the wall reads: \"BREAK ROOM. Choose one.\"\n\n");
+                                printf("1) Sleep for 10 hours\n");
+                                printf("2) Eat a buffet of whatever you want\n");
+                                printf("3) Skip the break and move on\n");
+                                printf("What do you choose? ");
+                                scanf("%d", &pick);
+
+                                switch (pick)
+                                {
+                                        case 1:
+                                                printf("\nYou find a bed in the corner and lay down.\n");
+                                                printf("You sleep for 10 hours straight. No dreams. Just rest.\n");
+                                                printf("You wake up feeling completely recharged.\n");
+                                                break;
+                                        case 2:
+                                                printf("\nA massive table of food appears in front of you.\n");
+                                                printf("Steak, pizza, sushi, tacos, everything you could want.\n");
+                                                printf("You eat until you can not move. Worth it.\n");
+                                                break;
+                                        case 3:
+                                                printf("\nYou decide you do not need a break.\n");
+                                                printf("You turn around and walk back out the door.\n");
+                                                break;
+                                        default:
+                                                printf("\nYou stood there confused and did nothing. Moving on.\n");
+                                                break;
+                                }
+                                doorsOpened++;
+                                break;
+                        }
+                        case 3:
+                        {
+                                // FORTNITE ROOM
+                                printf("\nYou enter the room and a giant screen flickers on.\n");
+                                printf("A voice booms: \"YOU MUST WIN A GAME OF FORTNITE TO LEAVE.\"\n");
+                                printf("\"Choose your weapon.\"\n\n");
+
+                                while (true)
+                                {
+                                        printf("1) Blue Tactical Shotgun\n");
+                                        printf("2) Sniper Rifle\n");
+                                        printf("3) Gold Scar\n");
+                                        printf("Pick your weapon: ");
+                                        scanf("%d", &weapon);
+
+                                        if (weapon == 1)
+                                        {
+                                                printf("\nYou grab the Blue Tac and drop into Salty Springs.\n");
+                                                printf("You land on a roof and rush inside.\n");
+                                                printf("Another player is already there with a pump.\n");
+                                                printf("You get one-pumped before you can even aim.\n");
+                                                printf("Back to the lobby. Pick again.\n\n");
+                                        }
+                                        else if (weapon == 2)
+                                        {
+                                                printf("\nYou grab the Sniper and drop into a quiet area.\n");
+                                                printf("You spend the whole game hiding in a bush.\n");
+                                                printf("Final two. You line up a shot on the last player.\n");
+                                                printf("You miss. They build a tower and laser you.\n");
+                                                printf("Second place. Pick again.\n\n");
+                                        }
+                                        else if (weapon == 3)
+                                        {
+                                                printf("\nYou grab the Gold Scar and drop safe.\n");
+                                                printf("You play smart. Rotate with the storm.\n");
+                                                printf("Final two. The last player runs past your bush.\n");
+                                                printf("You light them up from behind. They never saw it coming.\n");
+						break;
+                                        }
+                                }
+                                doorsOpened++;
+                                break;
+                        }
+                        case 4:
+                        {
+                                // ARTHUR'S ROOM
+                                printf("\nYou push open the door and step into a small, quiet room.\n");
+                                printf("The light is warm but dim. There is a chair by the window\n");
+                                printf("and an older man sitting in it. He looks tired.\n\n");
+                                printf("He looks up at you.\n");
+                                printf("\"Hey. I am Arthur. What is your name?\"\n\n");
+
+                                printf("You tell him your name is %s.\n\n", name);
+
+                                printf("Arthur nods slowly.\n");
+                                printf("\"Sit down, %s. Stay a minute.\"\n\n", name);
+                                printf("You sit across from him. Neither of you says anything.\n");
+                                printf("The room is quiet. Just the sound of breathing.\n");
+                                printf("About 30 seconds pass.\n\n");
+
+                                printf("Arthur speaks first.\n\n");
+                                printf("\"I have had a good life, %s. Long one too.\n", name);
+                                printf("But I will be honest with you. I am scared.\n");
+                                printf("People think when you get old or when you get sick\n");
+                                printf("the fear goes away. Like you just accept it.\n");
+                                printf("That is not how it works.\"\n\n");
+                                printf("He pauses.\n\n");
+                                printf("\"I am scared of dying. Scared of being forgotten.\n");
+                                printf("Scared that none of what I did ever really mattered.\"\n\n");
+                                printf("He looks at you.\n");
+                                printf("\"What would you say to a man who is scared of dying?\"\n\n");
+
+                                // Decision 1
+                                printf("1) \"I think being scared means you cared about living.\"\n");
+                                printf("2) \"I do not think anyone is ready for that. And that is okay.\"\n");
+                                printf("3) \"The people you touched will carry you with them.\"\n");
+                                printf("What do you say? ");
+                                scanf("%d", &artChoice);
+
+                                if (artChoice == 1)
+                                {
+                                        printf("\nArthur lets out a small breath.\n");
+                                        printf("\"Maybe you are right. If I did not care, I would not be\n");
+                                        printf("sitting here worrying about it.\"\n");
+                                }
+                                else if (artChoice == 2)
+                                {
+                                        printf("\nArthur nods slowly.\n");
+                                        printf("\"That is honest. I appreciate that.\n");
+                                        printf("Everyone else tries to tell me it will be fine.\n");
+                                        printf("At least you are not lying to me.\"\n");
+                                }
+                                else
+                                {
+                                        printf("\nArthur's eyes get a little wet.\n");
+                                        printf("\"I hope so. I really do.\n");
+                                        printf("I just wish I could know that for sure.\"\n");
+                                }
+
+                                // Decision 2
+                                printf("\n\nArthur shifts in his chair.\n");
+                                printf("\"I think about the people I hurt. Things I said that I\n");
+                                printf("can not take back. People I let down.\"\n\n");
+                                printf("\"You think a man can still make peace with himself\n");
+                                printf("this close to the end?\"\n\n");
+
+                                printf("1) \"It is never too late to forgive yourself.\"\n");
+                                printf("2) \"You do not need to fix everything. Just own it.\"\n");
+                                printf("3) \"The fact that you feel regret means you know right from wrong.\"\n");
+                                printf("What do you say? ");
+                                scanf("%d", &artChoice);
+
+                                if (artChoice == 1)
+                                {
+                                        printf("\nArthur closes his eyes for a moment.\n");
+                                        printf("\"Forgiving yourself. That is the hardest part.\n");
+                                        printf("Harder than forgiving anyone else.\"\n");
+                                }
+                                else if (artChoice == 2)
+                                {
+                                        printf("\nArthur looks down at his hands.\n");
+                                        printf("\"Own it. Yeah. I can do that.\n");
+                                        printf("I cannot undo it but I can at least stop running from it.\"\n");
+                                }
+                                else
+                                {
+                                        printf("\nArthur lets out a quiet laugh.\n");
+                                        printf("\"That is a kind way to look at it.\n");
+                                        printf("I guess the ones who never feel regret are the ones\n");
+                                        printf("you should really worry about.\"\n");
+                                }
+
+                                // Ending
+                                printf("\n\nArthur looks at you one more time.\n");
+                                printf("\"Thank you for listening, %s. I mean that.\n", name);
+                                printf("I feel a little less afraid now.\"\n\n");
+                                printf("You stand up. You shake his hand.\n");
+                                printf("You walk to the door and open it.\n\n");
+                                printf("You feel better after the conversation.\n");
+                                doorsOpened++;
+                                break;
+                        }
+                        case 5:
+                        {
+                                printf("You enter the room that said the words \"I Scream\"\n\n");
+                                printf("You find an ice cream sandwich. Yippee!");
+								doorsOpened++;
+                        }
+                }
+	}
 }
 
 void AMaderaFun(void)
