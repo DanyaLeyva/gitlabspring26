@@ -11,8 +11,8 @@
 //Kristopher Willett
 //Nishat Nawshin
 //Angel Martinez
+//John Keroles 
 //Dagmawe (Bobby) Afework
-
 
 
 
@@ -98,6 +98,8 @@ bool televisionTroubles(int max_player_HP, int max_enemy_HP, int max_numOfPotion
 bool laughingLaboratory(int max_player_HP, int max_enemy_HP, int max_numOfPotions);
 bool spaceSpectacle(int max_player_HP, int max_enemy_HP, int max_numOfPotions);
 
+void jkFun(void);
+void jkRoom41(void); 
 
 
 
@@ -432,7 +434,8 @@ int main(int argc, char *argv[])
 			}
 			case 41:
 			{
-				puts("room41");
+				jkFun();
+				jkRoom41();
 				break;
 			}
 			case 42:
@@ -870,6 +873,13 @@ void afFun(void)
 { 
 	puts("AFroom52");
 }
+
+void jkFun(void)
+{
+	printf("PSG\n");
+}
+
+
 
 void dcFunc(void)
 {
@@ -3325,3 +3335,113 @@ bool spaceSpectacle(int max_player_HP, int max_enemy_HP, int max_numOfPotions)
 }
 
 
+void jkRoom41(void)
+{
+    int choice = 0;
+    int running = 1;
+    int score = 0;
+    int shots = 0;
+    int misses = 0;
+    char *players[3] = {"Mbappe", "Dembele", "Hakimi"};
+
+    printf("\nYou enter room 41 and appear inside a soccer stadium!\n");
+    printf("PSG needs your help to win the match.\n");
+
+    while(running)
+    {
+        printf("\nChoose your move:\n");
+        printf("1. Pass the ball\n");
+        printf("2. Take a shot\n");
+        printf("3. Check teammates\n");
+        printf("4. Defend\n");
+        printf("5. Leave stadium\n");
+        printf("Enter choice: ");
+
+        scanf("%d", &choice);
+
+        switch(choice)
+        {
+            case 1:
+                printf("You pass to %s.\n", players[rand() % 3]);
+                break;
+
+            case 2:
+            {
+                int shot = rand() % 2;
+                shots++;
+
+                if(shot == 1)
+                {
+                    printf("GOAL! PSG scores!\n");
+                    score++;
+                }
+                else
+                {
+                    printf("Missed shot!\n");
+                    misses++;
+                }
+
+                printf("Score: %d | Shots: %d | Misses: %d\n", score, shots, misses);
+                break;
+            }
+
+            case 3:
+                printf("Teammates: %s, %s, %s\n", players[0], players[1], players[2]);
+                break;
+
+            case 4:
+            {
+                int defense = rand() % 2;
+
+                if(defense == 1)
+                    printf("Great defense!\n");
+                else
+                    printf("Opponent gets through!\n");
+
+                break;
+            }
+
+            case 5:
+                printf("\n========================================\n");
+                printf("              MATCH FINISHED            \n");
+                printf("========================================\n");
+
+                printf("\nFinal Stats:\n");
+                printf("Goals: %d\n", score);
+                printf("Shots: %d\n", shots);
+                printf("Misses: %d\n", misses);
+
+                printf("\n");
+                printf("        _________________________\n");
+                printf("       |                         |\n");
+                printf("       |          GOAL           |\n");
+                printf("       |_________________________|\n");
+                printf("                  ||\n");
+                printf("                  ||\n");
+                printf("\n");
+                printf("              \\O/        (BALL)\n");
+                printf("               |       --------->\n");
+                printf("              / \\\n");
+                printf("\n");
+                printf("        PSG PLAYER TAKES THE FINAL SHOT!\n");
+
+                if(score > misses)
+                {
+                    printf("\n        GOOOOOOAL! PSG WINS!\n");
+                    printf("        The crowd is cheering!\n");
+                }
+                else
+                {
+                    printf("\n        PSG fought hard today!\n");
+                    printf("        The crowd still cheers for the effort!\n");
+                }
+
+                printf("\n\nYou leave the stadium and return to the main room.\n");
+                running = 0;
+                break;
+
+            default:
+                printf("Invalid choice.\n");
+        }
+    }
+}
