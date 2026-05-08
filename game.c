@@ -75,7 +75,7 @@ void GuckMan(void);
 void AMaderaFun(void);
 void CAYfrog(void);
 void afFun(void);  
-void jmItsGoTime(void);
+void jmItsGameTime(void);
 void stanPush(void);
 void printdAfeworkIntials(void);
 void kwillett48(void);
@@ -515,8 +515,8 @@ int main(int argc, char *argv[])
 			}
 			case 55:
 			{
-				jmItsGoTime();
-				puts("room55");
+				jmItsGameTime();
+				puts("You have entered Room 55!\n");
 				break;
 			}
 			case 56:
@@ -2418,10 +2418,203 @@ void CAYfrog(void)
 {
 	printf("CAY");
 }
+//Room 55
 
-void jmItsGoTime(void)
+void jmItsGameTime(void)
 {
-	printf("JM\n");
+	//Starting Variables
+	int choice = 0;
+	int servantChoice = 0;
+	char *servantName = "BLANK";
+	int bossHealth = 100;
+	int playerHealth = 100;
+	int battleOptions = 0;
+	char *enemies[] = {"Shadow Saber", "Shadow Lancer", "Shadow Archer"};
+	int chooseRandomEnemy = rand() % 3;
+	int secretInfo = 0;
+
+
+	puts("---Welcome to Room of Fate!---");
+	puts("You are in a dark grim blue room with futuristic technology that you don't recognize.");
+	puts("Yook look around the room and you see staircases leading up to a platform.");
+	puts("On the platform you see 3 pedestal, on them you 3 floating cards.");
+	puts("The cards shows heroes with different archetypes.");
+	puts("Whichever you have chosen they will guide you in your journey.");
+	puts("1. Saber");
+	puts("2. Archer");
+	puts("3. Lancer");
+	//Choose 1
+	printf("Card chosen: \n");
+	scanf("%d", &servantChoice);
+
+	if(servantChoice == 1)
+	{
+		servantName = "Saber";
+	}
+	else if(servantChoice == 2)
+	{
+		servantName = "Lancer";
+	}
+	else if(servantChoice ==3)
+	{
+		servantName = "Archer";
+	}
+	else
+	{
+		servantName = "Ruler";
+	}
+
+	printf("You and %s have been summoned!\n", servantName);
+	printf("%s has spawned. \n", enemies[chooseRandomEnemy]);
+	printf("You and your partner are stuck in a room with the enemy.\n");
+	printf("There are multiple chests in the room.\n");
+	printf("---BATTLE ENGAGED---\n");
+
+	//While Loop
+	while(bossHealth > 0 && playerHealth >0)
+	{
+		printf("%s Health: %d | %sHealth %d\n", servantName, playerHealth, enemies[chooseRandomEnemy], bossHealth);
+		printf("How would you choose to fight.\n");
+        	puts("1. Attack");
+        	puts("2. Talk");
+        	puts("3. Escape");
+        	puts("4. Befriend");
+		puts("Choose: ");
+		
+		scanf("%d", &choice);
+
+		switch (choice)
+		{
+			//Turn-based Combat
+			case 1:
+			{
+				int damage = rand() % 20 +10;
+				bossHealth -= damage;
+				printf("You and %s attack the enemy. %d DAMAGE!\n",servantName, damage);
+			}
+			break;
+
+			//Talk to the enemy to get some information.
+			case 2:
+			{
+				int talkChoice = 0;
+				printf("You try to talk to talk with %s\n", enemies[chooseRandomEnemy]);
+				printf("1. Try to calm the enemy by singing. \n");
+				printf("2. Demean the enemy to submission, \n");
+				scanf("%d", &talkChoice);
+
+				if(talkChoice == 1)
+				{
+					printf("The enemy pauses to sing!\n");
+					printf("You learn that it loves to sing.\n");
+					secretInfo = 1;
+					continue;
+				}
+				else
+				{
+					printf("The enemy got enraged. The health increased by 10.\n");
+					bossHealth +=10;
+				}
+			}
+			break;
+			
+			//ESCAPE
+			case 3:
+			{
+				int itemThrown = 0;
+				int toEscape = 0;
+
+				printf("You and %s try to escape and got cut off.\n", servantName);
+				printf("Next to you, you see a chest.\n");
+				printf("You opened it a see a bunch of smokebombs.\n");
+				printf("You decided to throw it at the enemy!\n");
+				printf("1. Aim at torso \n");
+				printf("2. Aim at the ground \n");
+				printf("Choose: \n");
+
+				scanf("%d", &itemThrown);
+				if(itemThrown != 1 && itemThrown != 2)
+				{
+					printf("Invalid choice..., the smokebomb slips from your grasp!\n");
+					playerHealth -=5;
+				}
+				else
+				{
+					toEscape = (rand() % 2) +1;
+					printf("You throw the smoke as hard as you can and hope for the best...\n");
+					if(itemThrown == toEscape)
+					{
+						printf("The smokebomb was a direct HIT, the room is filled with smoke.\n");
+						bossHealth = 0;
+						printf("Now its time to escape back, say goodbye to your partner!\n");
+					}
+					else
+					{
+						printf("The smoke did not do anything, rather just stayed as a ball... %s is still looking at you and decided to attack!\n",enemies[chooseRandomEnemy]);
+						playerHealth -=10;
+					}
+
+				}
+			}
+			break;
+			
+			//BEFRIEND
+			case 4:
+			{
+				int beFriendChoice = 0;
+				printf("You decided to open your hand and build a connection with%s.\n",enemies[chooseRandomEnemy]);
+				printf("1. Try to make sense of the situation.\n");
+				printf("2. Make an anecdote of it attire.\n");
+
+				if(secretInfo == 1)
+				{
+					printf("3.[SECRET INFO] Say the name of the %s, to reveal the identity and bring them to light!\n",enemies[chooseRandomEnemy]);
+				}
+				printf("Choose: \n");
+				scanf("%d", &beFriendChoice);
+
+				if(beFriendChoice == 3 && secretInfo == 1)
+				{
+					printf("You have revealed the true name of the %s and plegdge your allegiances to you.\n", enemies[chooseRandomEnemy]);
+					bossHealth = 0;
+				}
+				else if(beFriendChoice == 1 && bossHealth<= 40)
+				{
+					printf("The enemy has formed a bond.\n");
+					bossHealth = 0;
+				}
+				else if (beFriendChoice == 2)
+				{
+					printf("The bond failed, and decided to attack you!\n");
+					playerHealth -= 20;
+				}
+
+			}
+			break;
+				
+					
+		}//End of while loop
+		 
+		//Enemy Turn
+		if (bossHealth > 0)
+		{
+			int enemyDamage = rand() %15+5;
+			playerHealth-=enemyDamage;
+			printf("%s attacks for %d damage: \n", enemies[chooseRandomEnemy],enemyDamage);
+		}
+
+		//Health check
+		if(playerHealth <= 0)
+		{
+			printf("You and %s have been defeated...\n", servantName);
+		}
+		else if (bossHealth <= 0)
+		{
+			printf("%s has been defeated!\n",enemies[chooseRandomEnemy]);
+		}
+		
+
+	}
 }
 void printdAfeworkIntials(void)
 {
