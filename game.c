@@ -1878,7 +1878,197 @@ void jbInit()
 // Case 45:
 void brooklynstitt(void)
 {
-	printf("Initials: BAS\n\n");
+    // Based on the game "Dave The Diver" and the Club Penguin diving game lol
+	  char *treasure[] = {"Pearl", "Diamond Ring", "Heart Boxers", "Gold Dabloons", "Sweaty Sock", "Krabby Patty"};
+    int numTreasure = 0;
+    int oxygen = 100;
+    int depth = 0;
+    int extraTank = 0;
+    int propeller = 0;
+    int userchoice;
+    int i = 0;
+    int luck = rand() % 10 + 1;
+    int treasureidx = 0;
+    int dive;
+    int dolphin = 0;
+    int kraken = 0;
+    int gameover = false;
+    int ghostship = 0;
+    int jellyfish = 0;
+
+    printf("\n\n𓇼 ⋆.˚ 𓆝⋆.˚ 𓇼 °‧ 𓆝 𓆟 𓆞 ·｡⊹ ﹏𓊝﹏𓂁﹏⊹ ˖ 𓇼 ⋆.˚ 𓆝⋆.˚ 𓇼 ⋆.˚ 𓆝⋆.˚ 𓇼 \n");
+    printf("                         Deep Sea Diver                           ");
+    printf("\n\n𓇼 ⋆.˚ 𓆝⋆.˚ 𓇼 °‧ 𓆝 𓆟 𓆞 ·｡⊹ ﹏𓊝﹏𓂁﹏⊹ ˖ 𓇼 ⋆.˚ 𓆝⋆.˚ 𓇼 ⋆.˚ 𓆝⋆.˚ 𓇼 \n");
+    
+    printf("\nHello diver! We are going diving for treasure!");
+    printf("\n(You receive one oxygen tank and diving gear...");
+
+    while(oxygen > 0 && depth < 100 && gameover == 0)
+    {
+      printf("\n\nOxygen: [");
+      for(i = 0; i < 10; i++)
+      {
+        if(i < (oxygen / 10))
+        {
+          printf("#");
+        }
+        else
+        {
+          printf(" ");
+        }
+      }
+      printf("]     %d %% left\n", oxygen);
+
+      printf("Depth: You are %d meters down\n", depth);
+      printf("\n𓇼 ⋆.˚ 𓆉  𓆝  𓆡⋆.˚ 𓇼  𓇼 ⋆.˚ 𓆉 𓆝  𓆡⋆.˚\n\n");
+
+      printf("Choose what to do: \n1) Search Around \n2) Dive Deeper\nChoice: ");
+      scanf("%d", &userchoice);
+
+      luck = rand() % 10 + 1;
+
+      if(userchoice == 1)
+      {
+        oxygen -= 5;
+        if(luck > 5) 
+        {
+            printf("You found %s!\n", treasure[treasureidx]);
+            numTreasure++;
+            treasureidx++;
+        }
+        else
+        {
+          printf("Tough Luck... You found nothing.\n");
+        }
+      }
+      else
+      {
+         if(propeller == 1)
+         {
+           dive = 20;
+         }
+         else
+         {
+           dive = 10;
+         }
+         oxygen -= 10;
+         depth += dive;
+         printf("You dove %d meters...\n", dive);
+      }
+      
+      if(luck < 5 && depth > 20 && kraken == 0)
+      {
+        kraken = 1;
+        printf("\n !!!!! KRAKEN ATTACK !!!!! Crazy strong tentacles grab you!\n");
+        printf("Choose what to do: \n1) Fight\n2) Use Propeller to escape (if you have one)\nChoice: ");
+        scanf("%d", &userchoice);
+        if(userchoice == 1 || (userchoice == 2 && propeller == 0))
+        {
+          printf("You fought hard!! The fight used up a lot of oxygen.\n");
+          oxygen -= 20;
+        }
+        if(userchoice == 2 && propeller == 1)
+        {
+          printf("You safely got away!\n");
+        }
+      }
+      if(depth >= 30 && depth <= 40 && dolphin == 0) 
+      {
+        printf("\n! You see a baby dolphin tangled in a net!\n");
+        printf("Choose what to do: \n1) Cut the net (-10 Oxygen)\n2) Ignore (You're an evil evil person)\nChoice: ");
+        scanf("%d", &userchoice);
+        if(userchoice == 1)
+        {
+          printf("The dolphin is free! It gives you %s!\n", treasure[treasureidx]);
+          dolphin = 1;
+          oxygen -= 10;
+          numTreasure++;
+          treasureidx++;
+        }
+      }
+
+      if(depth == 20 && propeller == 0)
+      {
+        printf("\n! You see a propeller under a rock! This could come in handy!\n 1) Pick up\n2) Leave it\n Choice: ");
+        scanf("%d", &userchoice);
+        if(userchoice == 1)
+        {
+          propeller = 1;
+          printf("\n Propeller added to your inventory.");
+        }
+      }
+
+      if(depth <= 60 && depth >= 50 && extraTank == 0)
+      {
+        printf("\n You see an extra oxygen tank!\n1) Pick up\n2) Leave it\nChoice: ");
+        scanf("%d", &userchoice);
+        if(userchoice == 1)
+        {
+          printf("Extra oxygen tank equipped. You can reach the bottom with this much oxygen!\n");
+          extraTank = 1;
+          oxygen += 30;
+        }
+      }
+      
+      if(depth >= 70 && extraTank == 0 && propeller == 0)
+      {
+        printf("\n It is wayyyy too deep down here. The preasure is too much. You must go back to the surface.\n");
+        break;
+      }
+      if(depth == 80 && ghostship == 0)
+      {
+        ghostship = 1;
+        printf("\nA ghost ship looms by.. Choose what to do:\n1) Enter (-15 Oxygen)\n2) Pass\nChoice: ");
+        scanf("%d", &userchoice);
+        if(userchoice == 1)
+        {
+          if(luck > 5)
+          {
+            printf("\nYou found the Captain's Chest! (+5 Treasure)!\n");
+            numTreasure+= 5;
+          }
+          else
+          {
+            printf("\nIt was a trap! You barely escaped alive as ghosts chased you out!\n");
+            oxygen -= 20;
+          }
+        }
+      }
+      if(depth == 90 && jellyfish == 0)
+      {
+        printf("\nYou stumbled across a swarm of glowing jellyfish! Choose what to do: \n1) grab the glowing treasure underneath them\n2) TOUCH THE JELLY\nChoice: ");
+        scanf("%d", &userchoice);
+        if(userchoice == 1)
+        {
+          printf("\nWow you are smart... im sure no one would be stupid enough to pick the other option (+1 treasure)\n");
+          numTreasure += 1;
+        }
+        else
+        {
+          printf("TOUCHTHEJELLYTOUCHTHEJELLY ALL HAIL THE JELLY WOOOOOOOOO... (the jellyfish seemed to have poisoned you.... you swam up???\n");
+          depth -= 10;
+        }
+      }
+
+      if(depth >= 100)
+      {
+        printf("\nYOU DID IT!!!! You reached the bottom\n");
+        numTreasure += 5;
+        break;
+      }
+
+      printf("\nContinue? \n1) Yes\n2) No\nChoice: ");
+      scanf("%d", &userchoice);
+      if(userchoice == 2)
+      {
+        break;
+      }
+      
+    }
+
+    printf("\nCongratds! You reached the surface with %d treasures!!\n", numTreasure);
+    printf("You may now escape this room....\n\n");
+
 }
 
 void ip21(void)
