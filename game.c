@@ -1219,7 +1219,7 @@ void mnFun(void)
 
 
 //place functions here
-//
+
 void cparkerFun(void)
 {
 	printf("C P\n");
@@ -1243,7 +1243,133 @@ void ls(void)
 void JMfun(void)
 {
 	printf("JM");
-}
+
+	int decision = 0;
+	int score = 0;
+	int trap[5] = {0, 0, 0, 0, 0};
+	int ranTrap = rand() % 5;
+	trap[ranTrap] = 1;
+
+	puts("\nYou entered Door 24 (Jonray Mendoza)");
+	puts("You have entered what appears to be a maze with a series of right and left choices... be careful as you have 5 tries to escape");
+
+	for(int i = 0; i < 5; i++) // 5 turns
+	{
+		printf("\nTurn %d\n", i + 1);
+		puts("Choose: ");
+		puts("1. Go Left?");
+		puts("2. Go Right?");
+		scanf("%d", &decision);
+
+		if(decision != 1 && decision != 2)
+		{
+			puts("lose a point for invalid input");
+			score--;
+			continue;
+		}
+		if(trap[i] == 1) // trap checking
+		{
+			puts("You step on a suspicious pressure plate and triggered a dart trap! -1 point");
+			score -= 1;
+			continue;
+		}
+		int event = rand() % 3; // 0-2 random skeleton event
+		
+		if(event == 0)
+		{
+			int action = 0;
+			puts("A skeleton appeared!");
+			puts("What will you do?");
+			puts("1. Fight it!");
+			puts("2. Run Away!");
+			scanf("%d", &action);
+
+			if(action == 1) // user fights skeleton
+			{
+				int outcome = rand() % 2; // 0-1 random outcome
+				if(outcome == 0)
+				{
+					puts("The skeleton hit you! -1 point.");
+					score -= 1;
+				}
+				else
+				{
+					puts("You defeated the skeleton! +1 point.");
+					score += 1;
+				}
+			}
+			else if(action == 2) // user runs away
+			{
+				puts("You run away safely.");
+			}
+			else
+			{
+				puts("Skeleton hits you for invalid action! -1 point");
+				score -= 1;
+			}
+		}
+		else if(event == 1)
+		{
+			int chestoption = 0;
+			
+			puts("You found a chest... what will you do?");
+			puts("1. Open it?");
+			puts("2. Leave it?");
+			scanf("%d", &chestoption);
+
+			if(chestoption == 1) // user opens chest
+			{
+				int chest = rand() % 3; // 0-2 random outcomes
+				if(chest == 0)
+				{	
+					puts("The chest becae a mimic! -1 point");
+					score -= 1;
+				}
+				else if(chest == 1)
+				{
+					puts("unless you want cobwebs and dust... it is empty");
+				}
+				else
+				{
+					puts ("You found shiny gold! +1 point");
+					score += 1;
+				}
+			}
+			else if(chestoption == 2) // user leaves the chest
+			{
+				puts("You leave the chest alone.");
+			}
+			else
+			{
+				puts("You walk away from an invalid choice.");
+			}
+		}
+		else
+		{
+			puts("Nothing happens...");
+		}
+		printf("\nYour score: %d\n", score);
+		if(score <= -3) // check if user dies (-3 score)
+		{
+			puts("\nYou took too much damage!");
+			puts("You failed to escape door 24!");
+			puts("Thank you for playing my room! - Jonray Mendoza");
+			return;
+		}
+	} // end of 5 turns
+
+	printf("\nFinal score: %d\n", score);
+	if(score >= 3)
+	{
+		puts("You have made it out of Door 24!");
+	}
+	else
+	{
+		puts("You barely survived Door 24! Congrats!");
+	}
+	puts("Thank you for playing my room! - Jonray Mendoza");
+	
+} // end of JMfun
 
 
 void RRlab(void)
