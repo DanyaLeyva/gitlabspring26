@@ -3222,9 +3222,323 @@ void printdAfeworkIntials(void)
 
 void kwillett48(void)
 {
-	printf("KDW");
+	// Room 48: Wings of Fire Inspired Adventure inspired by the Wings of Fire book series by Tui T. Sutherland
+	// In the books, dragons call humans "scavengers." My room takes place during a peaceful era where a human can safely explore dragon kingdoms and build trust with them.
+	
+	int choice = 0;
+	int visit_count = 0;
+	int random_event = 0;
+	int trust = 0;
+	int supplies = 3;
+	int escaped = 0;
 
+	//This part will track the player earns special items form each of the kindoms
+	
+	bool has_sky_feather = false;
+	bool has_ice_crystal = false;
+	bool has_sea_pearl = false;
+	bool has_sand_gem = false;
+	bool has_night_scroll = false;
+
+	//An array will store all places the player has visited 
+	
+	char visited[5][50];
+	int visited_count = 0;
+	
+	printf("\n--- Room 48: Wings of Fire Journey ---\n");
+	printf("You are Kristopher, a scavenger from a small human village.\n");
+	printf("For years, dragons feared humans and humans feared dragons.\n");
+	printf("But peace has finally spread across Pyrrhia.\n");
+	printf("You now have the rare chance to explore dragon lands.\n");
+	printf("Your goal is to prove humans deserve trust with the dragon kindoms and the dragons of each one..\n");
+	
+	sleep(2);
+
+	//A loop is required for game to continue until the player chooses to leave.
+	
+	while (!escaped)
+	{
+		printf("\nChoose where to travel:\n");
+		printf("1. Visit the Sky Kingdom\n");
+		printf("2. Visit the Ice Kingdom\n");
+		printf("3. Visit the Sea Kingdom\n");
+		printf("4. Visit the Sand Kingdom\n");
+		printf("5. Visit the Night Kingdom\n");
+		printf("6. Check travel notes\n");
+		printf("9. Return home\n");
+		printf("Choice: ");
+		
+		if(scanf("%d", &choice) != 1)
+		{
+			 printf("Invalid input.\n");
+			 while(getchar() != '\n');
+			 continue;
+		}
+
+		// Random number required to create different outcomes for each time.
+
+		random_event = rand() % 4;
+		
+		switch(choice)
+		{
+			// SkyWings
+			// In Wings of Fire, SkyWings are mountain dragons known for speed, flying skill, and pride.
+			// Their kingdom is full of cliffs and dangerous heights in the mountains of Pyrrhia.
+			case 1:
+				printf("\nYou arrive at the Sky Kingdom.\n");
+				printf("Massive swarms of  red dragons circle the mountains above as you approach them.\n");
+				
+				if(random_event == 0)
+				{
+					printf("A young SkyWing of what if seems like 10 years old wants to tests your bravery.\n");
+					trust += 2;
+				}
+				else if(random_event == 1)
+				{
+					printf("Strong winds knocks some supplies from your bag.\n");
+					supplies--;
+				}
+				else if(random_event == 2)
+				{
+					printf("You find a glowing red feather.\n");
+					has_sky_feather = true;
+				}
+				else
+				{
+					printf("You admire the SkyWing dragons as they are flying through the clouds with great speed.\n");
+				}
+				
+				if(visited_count < 5)
+				{
+					strcpy(visited[visited_count++], "Sky Kingdom");
+				}
+				visit_count++;
+				break;
+
+				// IceWings
+				// IceWings in there kingdom is located in a freezing climates full of icebergs and are known for discipline, survival skills, and ice breath.
+			case 2:
+				printf("\nYou enter the Ice Kingdom.\n");
+				printf("Snow storms surround icy dragon palaces.\n");
+				
+				if(random_event == 0)
+				{
+					printf("An IceWing challenges your survival knowledge.\n");
+					trust += 2;
+				}
+				else if(random_event == 1)
+				{
+					printf("The extreme cold drains your supplies.\n");
+					supplies--;
+				}
+				else if(random_event == 2)
+				{
+					printf("You discover a magical ice crystal.\n");
+					has_ice_crystal = true;
+				}
+				else
+				{
+					printf("IceWing guards allow you to pass.\n");
+				}
+				
+				if(visited_count < 5)
+				{
+					strcpy(visited[visited_count++], "Ice Kingdom");
+				}
+				visit_count++;
+				break;
+
+				// SeaWings
+				// SeaWings live underwater there kingdom consists of magic grown coral that was nursed for over 2000 years in Pyrrhia, they are know to communicate through glowing scales while in the water.
+				// On land with other dragons SeaWings can vocally talk with other dragons without being in the water.
+			case 3:
+				printf("\nYou visit the Sea Kingdom.\n");
+				printf("Blue dragons swim beneath glowing water.\n");
+				
+				if(random_event == 0)
+				{
+					printf("A royal guard SeaWing teaches you underwater signals. You take great light in understanding there signals.\n");
+					trust += 2;
+				}
+				else if(random_event == 1)
+				{
+					printf("A giant wave destroys some of your supplies.\n");
+					supplies--;	
+				}
+				else if(random_event == 2)
+				{
+					printf("You find a rare ocean pearl while swimming among the SeaWings.\n");
+					has_sea_pearl = true;	
+				}
+				else	
+				{
+					printf("You explore coral ruins.\n");
+				}
+				
+				if(visited_count < 5)
+				{
+					strcpy(visited[visited_count++], "Sea Kingdom");
+				}
+				visit_count++;
+				break;
+
+				// SandWings
+				// SandWings live in deserts and are known for survival in there environment, a few clusters of sandwings will make small towns or villiages for merchants and different dragons to visit.
+				// SandWings are known for there black eyes, and venomous tails spikes.
+			case 4:
+				printf("\nYou enter the Sand Kingdom.\n");
+				printf("Heat waves rise across endless dunes of the Kingdom and you come across the merchant den The Snakepit.\n");
+				
+				if(random_event == 0)
+				{
+					printf("A merchant dragon trades supplies.\n");
+					trust += 2;
+				}
+				else if(random_event == 1)
+				{
+					printf("The desert heat drains some of your supplies.\n");
+					supplies--;	
+				}
+				else if(random_event == 2)
+				{
+					printf("You discover a golden desert gem that glows as intense as the daylight.\n");
+					has_sand_gem = true;
+				}
+				else
+				{
+					printf("You avoid the dangerous tail barbs.\n");
+				}	
+				
+				if(visited_count < 5)
+				{
+					strcpy(visited[visited_count++], "Sand Kingdom");
+				}
+				visit_count++;
+				break;
+
+				 // NightWings
+				 // NightWings are think of them like scallors of a wealth of knowledge and have a habbit of sleeping during the day and being active at night.
+				 // NightWings are also best known as the prophecy tribe, with dragons who may have mind-reading and future-seeing powers, plus a very secretive and mysterious reputation.
+			case 5:
+				printf("\nYou enter the Night Kingdom.\n");
+				printf("Dark dragons observe you from the towering libraries as you enter there kingdom.\n");
+				
+				if(random_event == 0)
+				{
+					printf("A NightWing asks why do humans seek knowledge from dragons? You gave a honest reply to the NightWing..\n");
+					trust += 2;
+				}
+				else if(random_event == 1)
+				{
+					printf("You become lost among endless scrolls lost in how many scrolls you see.\n");
+					supplies--;
+				}
+				else if(random_event == 2)
+				{	
+					printf("You find an ancient prophecy scroll in your search.\n");
+					has_night_scroll = true;
+				}
+				else
+				{
+					printf("You feel something proding through your thoughts.\n");
+				}
+				
+				if(visited_count < 5)
+				{
+					strcpy(visited[visited_count++], "Night Kingdom");
+				}
+				visit_count++;
+				break;
+
+				// Checking your inventory and seeing the places that you have visited in Pyrrhia.
+			case 6:
+				printf("\n--- Travel Notes ---\n");
+				printf("Trust: %d\n", trust);
+				printf("Supplies: %d\n", supplies);
+				printf("Locations visited: %d\n", visit_count);
+				
+				printf("\nVisited Locations:\n");
+				
+				for(int i = 0; i < visited_count; i++)
+				{
+					printf("- %s\n", visited[i]);
+				}
+				
+				printf("\nItems Collected:\n");
+				
+				if(has_sky_feather)
+					printf("- Sky Feather\n");
+
+				if(has_ice_crystal)
+					printf("- Ice Crystal\n");
+				
+				if(has_sea_pearl)
+					printf("- Sea Pearl\n");
+				
+				if(has_sand_gem)
+					printf("- Sand Gem\n");
+				
+				if(has_night_scroll)
+					printf("- Night Scroll\n");
+				
+				break;
+
+				//End Game.
+			case 9:
+				printf("\nYou return home after your journey.\n");
+				
+				if(trust >= 8)
+				{
+					printf("You become known as the first great human ambassador.\n");
+				}	
+				else if(trust >= 4)
+				{
+					printf("Some dragons respect you.\n");
+				}
+				else
+				{
+					printf("You survived—but dragons remain uncertain.\n");
+				}
+				
+				escaped = 1;
+				break;
+				
+			default:
+				printf("Invalid choice.\n");
+				break;
+		}
+
+		// If player loses all supplies
+		if(supplies <= 0 && !escaped)
+		{
+			printf("\nYou ran out of supplies and must return home.\n");
+			escaped = 1;
+		}
+		
+		sleep(1);
+	}
+	 printf("\nThank you for playing Room 48: Wings of Fire Journey!\n");
+	 printf("From the shadows... something is watching you.\n\n");
+	 
+	 printf("              /\\                 /\\\n");
+	 printf("             /  \\_______________/  \\\n");
+	 printf("            /                       \\\n");
+	 printf("           |     ***       ***       |\n");
+	 printf("           |    *****     *****      |\n");
+	 printf("           |     ***       ***       |\n");
+	 printf("           |          ^              |\n");
+	 printf("           |        \\___/            |\n");
+	 printf("            \\                       /\n");
+	 printf("             \\                     /\n");
+	 printf("              \\___________________/\n");
+	 printf("                   /         \\\n");
+	 printf("                  /           \\\n");
+	 
+	 printf("\nTwo glowing eyes linger in the darkness as you return home...\n");
+	 printf("A NightWing of power and faith has seen your journey.\n");
+	 printf("And it will remember your journey.\n\n");
 }
+
 
 void ncInitial(void)
 {
