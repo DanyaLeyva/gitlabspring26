@@ -1480,6 +1480,55 @@ void rgarcia_fun(void)
 void AMaderaFun(void)
 {
 	printf("AMadera\n");
+	printf("You've entered the Fromsoftware Basketball Association Casino (sponsored by Fan(tasy)duel Sports Network)");
+	printf("In this room you'll be betting on who will when from the choices presented to you (coinflip style)");
+	printf("For every matchup you get correct, you will be granted souls. For every wrong choice, you die and you lose your souls");
+	srand(time(NULL));
+	int i =0;
+	int choice = 0;
+	int winner = 0;
+	int souls = 0;
+	int soulsWon = 100;
+	char *teams[] = 
+	{ "Lakers of Liurnia", "Caelid Clippers", "Mistwood Bucks", "Lake of Rot Rockets", "Nokron Nuggets", "New Londo Knicks", "Demon Ruins Heat", "Blighttown Bulls", "Firelink Shrine Suns", "Royal Wood Warriors"
+	};
+	for (i = 0; i <5; i++)
+	{
+		int team1 = i*2;
+		int team2 = (i*2)+1;
+		choice = 0;
+		while(choice < 1 || choice > 2)
+		{
+			printf("\nMatchup %d: 1. %s vs 2.%s\n", i + 1, teams[team1], teams[team2]);
+			printf("Who do you think will win, choose 1 or 2: ");
+			scanf("%d", &choice);
+		}
+		winner = 1 +rand() %2;
+		if(choice == winner)
+		{
+			souls += soulsWon;
+			printf("Bang, you're right. You gained %d souls\n",soulsWon);
+			printf("Current souls: %d\n", souls);
+		}
+		else
+		{
+			printf("Airball, YOU DIED. You lost %d souls\n", soulsWon);
+			if(souls> 0)
+			{
+				souls -= soulsWon;
+				if(souls < 0) souls =0;
+				printf("Current Souls Balance %d\n", souls);
+			}
+			else
+			{
+				printf("You have no souls\n");
+			}
+					
+		}
+				}
+				printf("Your final amount of souls was %d\n", souls);
+				puts("Gambling time over, back to the bonfire/site of grace/ and try farming for souls/runes");
+				
 }
 
 
