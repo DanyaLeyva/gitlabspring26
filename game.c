@@ -13,6 +13,7 @@
 //Angel Martinez
 //John Keroles 
 //Dagmawe (Bobby) Afework
+//Nathaniel Corteza
 
 
 
@@ -2436,7 +2437,227 @@ void kwillett48(void)
 
 void ncInitial(void)
 {
-	printf("NC");
+    srand(time(NULL));
+    int choice;
+    int dice = 0;
+    int checkNum1;
+    int checkNum2; 
+    int checkNum3;
+    int checkNum4;
+    int checkNum5;
+    int number[] = {1, 2, 3, 4, 5};
+    dice = 1 + rand() % 3;
+
+    printf("\n\nYou entered the room full of mirrors, displaying a cold reflection of your dark self. \nLooking back you see the door close and vanish. \nThere is now nothing, a black void, with a loud humming noise whispering your name.\n");
+    
+    while(choice < 1 || choice > 3)
+    {
+        printf("1 - punch the mirror\n");
+        printf("2 - embrace the person you are\n");
+        printf("3 - step back into the abyss and take a seat\n");
+        printf("choose a decision: ");
+        scanf("%d", &choice);
+        
+        if(choice <= 3)
+        {
+            printf("\n\nThere is nothing else you can do. The person that took form smiles back at you.\n");
+        }
+        if(choice > 3)
+        {
+            printf("Wrong choice. Try again.\n\n");
+        }
+    }
+        switch (choice)
+        {
+            case 1:
+            {
+                printf("The cold person that looks like you touches your arm through the mirror. You gasp and let go a cold breath, you look around and try to break the mirror with your hand\n\n");
+                break;
+            }
+            case 2:
+            {
+                printf("You hug the person you once were, a mere reflection of yourself\n\n");
+                break;
+            }
+            case 3:
+            {
+                printf("You sit in silence for hours and wait, waiting for something to happen. The silence withers you away.\n\n");
+                break;
+            }
+        }
+        
+    checkNum1 = choice;
+    choice = 0;
+    
+    printf("The void pulls you back into the shadows.\n");
+    
+    printf("1 - Walk endlessly\n");
+    printf("2 - Scream into the void\n");
+    printf("3 - Run toward the humming noise\n");
+    printf("choose a decision: ");
+    scanf("%d", &choice);
+    
+    while(choice < 1 || choice > 3)
+    {
+        printf("1 - Walk endlessly\n");
+        printf("2 - Scream into the void)\n");
+        printf("3 - Run toward the humming noise\n");
+        scanf("%d", &choice);
+        
+        if(choice <= 3)
+        {
+            printf("the void hurts your head\n\n");
+        }
+        if(choice > 3)
+        {
+            printf("Wrong choice. Try again.\n\n");
+        }
+    }
+    
+    checkNum2 = choice;
+    choice = 0;
+    
+    
+    printf("\nA faint wall shows, a door in the front with a demonic symbol. The abyss screams to you as if it is beckoning.\n");
+    
+    while(choice < 1 || choice > 3)
+    {
+        printf("1 - You try to open the vanished door\n");
+        printf("2 - You try to climb the wall\n");
+        printf("3 - Listen carefully to the repetitive humming noise\n");
+        printf("choose a decision: ");
+        scanf("%d", &choice);
+        
+        if(choice == 3)
+        {
+            printf("\nThe abyss holds you tighter\n\n");
+        }
+        
+        if(choice == 2)
+        {
+            printf("\nThe nothingness is mentally harmful, as if a thousand needles poke at your brain. You fall to the ground.\n\n");
+        }
+        if(choice > 3)
+        {
+            printf("Wrong choice. Try again.\n\n");
+        }
+    }
+    
+    checkNum3 = choice;
+    choice = 0;
+    
+    printf("You blink and the door disappears. With a cake on a table in its stead.\n\n");
+    
+    while(choice < 1 || choice > 4)
+    {
+        printf("1 - Talk to the cakee\n");
+        printf("2 - Become one with the cake\n");
+        printf("3 - Eat the cake and run\n");
+        printf("4 - Hold the cake in your hand and eat it\n");
+        printf("choose a decision: ");
+        scanf("%d", &choice);
+        
+        if(choice == 4)
+        {
+            printf("\nEating the cake fulfills your hungry stomache.\n\n");
+        }
+        if(choice > 4)
+        {
+            printf("Wrong choice. Try again.\n\n");
+        }
+    }
+    
+    checkNum4 = choice;
+    choice = 0;
+
+    printf("\nYou hear a rumbling noise behind you and a glimpse of a black door emanating steam from it arise.\n\n");
+    
+    while(choice < 1 || choice > 5)
+    {
+        printf("1 - Open the black door\n");
+        printf("2 - Turn around and live in the void forever\n");
+        printf("3 - become one with the void once more\n");
+        printf("4 - Cry to the black door\n");
+        printf("5 - Close your eyes and walk toward the door\n");
+        printf("choose a decision: ");
+        scanf("%d", &choice);
+        
+        switch (choice)
+        {
+            case 1:
+            {
+                printf("You open the door to a yellow room, with  a nostalgic but evil feeling. You close the door.\n");
+                break;
+            }
+            case 2:
+            {
+                printf("You sit alone forever in the void.\n");
+                break;
+            }
+            case 3:
+            {
+                printf("The void consumes your body slowly chipping you away.\n");
+                break;
+            }
+            case 4:
+            {
+                printf("Your tears vanish into the darkness.\n");
+                break;
+            }
+            case 5:
+            {
+                printf("You trip, as you open your eyes nothing is there, but the door remains.\n");
+                break;
+            }
+        }
+        
+        if(choice > 5)
+        {
+            printf("Wrong choice. Try again.\n\n");
+        }
+        
+    }
+    
+    checkNum5 = choice;
+    choice = 0;
+    
+    while(choice < 1 || choice > 2)
+    {
+        
+        printf("\n1 - Live (50 percent chance)\n");
+        printf("2 - Fade\n");
+        printf("choose a decision: ");
+        scanf("%d", &choice);
+        
+        if(choice == 1)
+        {
+            if(dice == 1)
+            {
+                printf("\nYou wake up walking in the middle of New York, but all is not well. For a brief moment you notice everyone has no face and a door grabs you and takes you back.\n\n");
+            }
+            else
+            {
+                printf("You failed to remain among the living.\n\n");
+            }
+                
+        }
+        
+        if(choice == 2)
+        {
+            printf("You failed and remained in the void, as a shadow.\n\n");
+        }
+        
+        if(choice >= 3)
+        {
+            printf("Wrong choice. Try again.\n\n");
+        }
+    }
+    
+	    // Secret Code (feature)
+	if (checkNum1 == number[0] && checkNum2 == number[1] && checkNum3 == number[2] && checkNum4 == number[3] && checkNum5 == number[4])
+	    {
+	        printf("The people you lost along the way remain in your stead as you reawaken into a world of bliss. 'Live on' your parents say. - Nate\n\n");
+	    }
 }
 
 void mtorres(void)
