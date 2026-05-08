@@ -1486,7 +1486,51 @@ void AMaderaFun(void)
 void ls(void)
 {
 	printf("LS\n");
-       
+      int player1;
+    int player2;
+    int rounds;
+    int i;
+
+    int results[3] = {0, 0, 0};
+
+    printf("You are in a rock paper scissors game. You can play against a friend. \n");
+
+    printf("How many rounds do you want to play? ");
+    scanf("%d", &rounds);
+
+    for(i = 1; i <= rounds; i++)
+    {
+        printf("\nRound %d\n", i);
+
+        printf("Player 1:\n");
+        printf("1. Rock\n2. Paper\n3. Scissors\n");
+        scanf("%d", &player1);
+
+        printf("Player 2:\n");
+        printf("1. Rock\n2. Paper\n3. Scissors\n");
+        scanf("%d", &player2);
+
+        if(player1 == player2)
+        {
+            printf("Tie!\n");
+            results[2]++;
+        }
+        else if((player1 == 1 && player2 == 3) || (player1 == 2 && player2 == 1) || (player1 == 3 && player2 == 2))
+        {
+            printf("Player 1 wins!\n");
+            results[0]++;
+        }
+        else
+        {
+            printf("Player 2 wins!\n");
+            results[1]++;
+        }
+    }
+
+    printf("Final Score:\n");
+    printf("Player 1 Wins: %d\n", results[0]);
+    printf("Player 2 Wins: %d\n", results[1]);
+    printf("Ties: %d\n", results[2]);
 }
 void JMfun(void)
 {
